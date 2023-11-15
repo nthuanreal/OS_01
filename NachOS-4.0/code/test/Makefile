@@ -109,10 +109,10 @@ INCDIR =-I../userprog -I../lib
 CFLAGS = -G 0 -c $(INCDIR) -B../../../usr/local/nachos/lib/gcc-lib/decstation-ultrix/2.95.2/ -B../../../usr/local/nachos/decstation-ultrix/bin/
 
 ifeq ($(hosttype),unknown)
-PROGRAMS = unknownhost 
+PROGRAMS = unknownhost
 else
 # change this if you create a new test program!
-PROGRAMS = add halt shell matmult createfile sort segments removefile
+PROGRAMS = add halt shell matmult sort segments createFile openFile 
 endif
 
 all: $(PROGRAMS)
@@ -126,12 +126,6 @@ halt: halt.o start.o
 	$(LD) $(LDFLAGS) start.o halt.o -o halt.coff
 	$(COFF2NOFF) halt.coff halt
 
-removefile.o: removefile.c
-	$(CC) $(CFLAGS) -c removefile.c
-removefile: removefile.o start.o
-	$(LD) $(LDFLAGS) start.o removefile.o -o removefile.coff
-	$(COFF2NOFF) removefile.coff removefile
-
 add.o: add.c
 	$(CC) $(CFLAGS) -c add.c
 
@@ -139,6 +133,20 @@ add: add.o start.o
 	$(LD) $(LDFLAGS) start.o add.o -o add.coff
 	$(COFF2NOFF) add.coff add
 
+createFile.o: createFile.c
+	$(CC) $(CFLAGS) -c createFile.c
+
+createFile: createFile.o start.o
+	$(LD) $(LDFLAGS) start.o createFile.o -o createFile.coff
+	$(COFF2NOFF) createFile.coff createFile
+
+openFile.o: openFile.c
+	$(CC) $(CFLAGS) -c openFile.c
+
+openFile: openFile.o start.o
+	$(LD) $(LDFLAGS) start.o openFile.o -o openFile.coff
+	$(COFF2NOFF) openFile.coff openFile
+	
 shell.o: shell.c
 	$(CC) $(CFLAGS) -c shell.c
 shell: shell.o start.o
@@ -162,13 +170,6 @@ matmult.o: matmult.c
 matmult: matmult.o start.o
 	$(LD) $(LDFLAGS) start.o matmult.o -o matmult.coff
 	$(COFF2NOFF) matmult.coff matmult
-
-createfile.o: createfile.c
-	$(CC) $(CFLAGS) -c createfile.c
-createfile: createfile.o start.o
-	$(LD) $(LDFLAGS) start.o createfile.o -o createfile.coff
-	$(COFF2NOFF) createfile.coff createfile
-
 
 clean:
 	$(RM) -f *.o *.ii

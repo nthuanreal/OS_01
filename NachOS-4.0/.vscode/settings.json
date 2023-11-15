@@ -1,6 +1,15 @@
 {
     "files.associations": {
-        "fstream": "cpp",
-        "typeinfo": "cpp"
+        "array": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "fstream": "c",
+        "iostream": "cpp",
+        "*.tcc": "c",
+        "sstream": "c"
     }
 }

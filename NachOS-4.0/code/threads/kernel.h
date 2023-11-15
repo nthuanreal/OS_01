@@ -19,6 +19,7 @@
 #include "filesys.h"
 #include "machine.h"
 
+
 class PostOfficeInput;
 class PostOfficeOutput;
 class SynchConsoleInput;

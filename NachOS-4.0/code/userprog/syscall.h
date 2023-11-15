@@ -31,7 +31,7 @@
 #define SC_Close	10
 #define SC_ThreadFork	11
 #define SC_ThreadYield	12
-#define SC_ExecV    13
+#define SC_ExecV	13
 #define SC_ThreadExit   14
 #define SC_ThreadJoin   15
 
@@ -105,8 +105,8 @@ typedef int OpenFileId;
  * the console device.
  */
 
-#define ConsoleInput	0  
-#define ConsoleOutput	1  
+// #define ConsoleInput	0  
+// #define ConsoleOutput	1  
  
 /* Create a Nachos file, with name "name" */
 /* Note: Create does not open the file.   */
@@ -119,7 +119,7 @@ int Remove(char *name);
 /* Open the Nachos file "name", and return an "OpenFileId" that can 
  * be used to read and write to the file.
  */
-OpenFileId Open(char *name);
+OpenFileId Open(char *name , int type);
 
 /* Write "size" bytes from "buffer" to the open file. 
  * Return the number of bytes actually read on success.
